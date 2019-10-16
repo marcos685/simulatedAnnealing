@@ -103,11 +103,14 @@ instancia simmulated_annealing(instancia &estado_inicial, float c, int iteracoes
 int main() {
     instancia novo = instancia_aleatoria();
 
+    instancia sol = simmulated_annealing(novo, 1, 100000);
+
 
     
 
     for (int i = 0; i<40; i++)
     {
-        cout<<novo[i]<<'\n';
+        cout<<sol[i]<<'\n';
     }
+    cout<<'\n'<<sol.n_rainhas_atacando()<<'\n';
 }
