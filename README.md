@@ -1,0 +1,1 @@
+Resolvendo o problema das N Rainhas com N = 40 usando o algoritmo de têmpera simulada (simulated annealing) 

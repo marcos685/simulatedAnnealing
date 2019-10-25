@@ -78,6 +78,7 @@ instancia simmulated_annealing(instancia &estado_inicial, float c, int iteracoes
 
     for (int i = 0; i < iteracoes; i++)
     {
+        cout<<"Iteracao: "<< i << "\nfitness: "<<atual.n_rainhas_atacando()<<"\n\n";
         float t = c/sqrt(i);
         instancia viz = viz_aleatorio(atual);
 
@@ -95,6 +96,8 @@ instancia simmulated_annealing(instancia &estado_inicial, float c, int iteracoes
                 atual = viz;
             }
         }
+
+        if (atual.n_rainhas_atacando() == 0) return atual;
     } 
 
     return atual;
@@ -103,14 +106,11 @@ instancia simmulated_annealing(instancia &estado_inicial, float c, int iteracoes
 int main() {
     instancia novo = instancia_aleatoria();
 
-    instancia sol = simmulated_annealing(novo, 1, 100000);
-
-
-    
+    instancia sol = simmulated_annealing(novo, 1, 1000000);
 
     for (int i = 0; i<40; i++)
     {
-        cout<<sol[i]<<'\n';
+        cout<<sol[i]<<' ';
     }
     cout<<'\n'<<sol.n_rainhas_atacando()<<'\n';
 }
